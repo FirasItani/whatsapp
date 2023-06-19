@@ -54,6 +54,7 @@ h1 {
   padding: 15px 5px;
   max-width: 110px;
   text-align: center;
+  font-weight: bold;
 }
 
 input:focus,
