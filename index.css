@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: white;
+  background-color: rgb(238, 253, 141);
   margin: 0;
   padding: 0;
   font-family: 'Rubik', sans-serif;
@@ -12,7 +12,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 320px;
+  max-width: 360px;
   margin: 0 auto;
   padding: 10px 40px;
 }
