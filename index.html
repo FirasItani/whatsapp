@@ -16,10 +16,23 @@
   <div class="container">
     <img src="fly.png">
     <h1>We are the Champions</h1>
-    <input type="text" placeholder="Write your conversation here" id="input-field">
+
+    <input class="input1" type="text" placeholder="Write your conversation here" id="input-field">
+
+    <div class="flex-div">
+
+      <input id="id-from" class="send" type="text" placeholder="From">
+      <input id="id-to" class="send" type="text" placeholder="To">
+
+    </div>
+
     <button id="publish-btn">Publish</button>
     <h2>-Conversations-</h2>
+
     <ul id="chatList"></ul>
+
+    <p id="note"></p>
+
   </div>
   <script src="index.js" type="module"></script>
 </body>

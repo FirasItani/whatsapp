@@ -11,11 +11,26 @@ const inputEl = document.getElementById("input-field")
 const publishBtn = document.getElementById("publish-btn")
 const chatList = document.getElementById("chatList")
 
+const noteEl = document.getElementById("note")
+const fromEl = document.getElementById("id-from")
+const toEl = document.getElementById("id-to")
+
+let fromUser = fromEl.value
+let toUser = toEl.value
+
 publishBtn.addEventListener("click", function () {
   let inputValues = inputEl.value
-  console.log(inputValues)
-  push(chatInDB, inputValues)
-  clearInputField()
+  fromUser = fromEl.value
+  toUser = toEl.value
+
+  if (inputValues !== "" && fromUser !== '' && toUser !== "") {
+    push(chatInDB, inputValues)
+
+    clearInputField()
+    clearNote()
+  } else if (inputValues === "") {
+    noteEl.textContent = "Ops! Write your message first"
+  }
 })
 
 onValue(chatInDB, function (snapshot) {
@@ -28,16 +43,9 @@ onValue(chatInDB, function (snapshot) {
     }
   } else {
     chatList.innerHTML = `<h2>There are no chat...yet</h2>`
+    noteEl.textContent = ""
   }
 })
-
-function clearInputField() {
-  inputEl.value = ""
-}
-
-function clearChatList() {
-  chatList.innerHTML = ""
-}
 
 function appendItems(chatItems) {
   let chatID = chatItems[0]
@@ -45,14 +53,26 @@ function appendItems(chatItems) {
 
   //creatElement
   let newEl = document.createElement("li")
-
-  newEl.textContent = chatValue
+  newEl.innerHTML = `<h3>From Mr.${fromUser}</h3> ${chatValue} <h3>To Mr.${toUser}</h3>`
+  chatList.append(newEl)
 
   newEl.addEventListener("click", function () {
     let exactLocationOfChat = ref(database, `conversation/${chatID}`)
-
     remove(exactLocationOfChat)
   })
+}
 
-  chatList.append(newEl)
+function clearInputField() {
+  inputEl.value = ""
+  fromEl.value = ""
+  toEl.value = ""
+}
+
+function clearChatList() {
+  chatList.innerHTML = ""
+
+}
+
+function clearNote() {
+  noteEl.textContent = ""
 }
