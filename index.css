@@ -31,7 +31,7 @@ h1 {
 .flex-div {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .input1 {
@@ -52,7 +52,7 @@ h1 {
   border-radius: 6px;
   margin: 10px 0;
   padding: 15px 5px;
-  max-width: 150px;
+  max-width: 80px;
   text-align: center;
 }
 
