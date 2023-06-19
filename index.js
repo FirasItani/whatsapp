@@ -56,7 +56,7 @@ function appendItems(chatItems) {
   newEl.innerHTML = `<h3>From Mr.${fromUser}</h3> ${chatValue} <h3>To Mr.${toUser}</h3>`
   chatList.append(newEl)
 
-  newEl.addEventListener("click", function () {
+  newEl.addEventListener("dblclick", function () {
     let exactLocationOfChat = ref(database, `conversation/${chatID}`)
     remove(exactLocationOfChat)
   })
